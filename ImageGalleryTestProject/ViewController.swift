@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     private var colorsGradient = [
         UIColor.green.cgColor,
-        UIColor.yellow.cgColor,
+        //UIColor.yellow.cgColor,
         UIColor.orange.cgColor]
     
     private var images: [UIImage] = [
@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         isAnimated.toggle()
         animatedImageView(animated: isAnimated)
         animatedGradient(animated: isAnimated)
+        
     }
     
     override func viewDidLoad() {
@@ -55,7 +56,7 @@ class ViewController: UIViewController {
     private func animationGradient(colors: [CGColor]) -> CABasicAnimation {
         let animated = CABasicAnimation()
         animated.fromValue = colors
-        animated.toValue = colors.shuffled() //.reversed().map{$0.self}
+        animated.toValue = colors.reversed().map{$0.self} //.shuffled()
         animated.duration = 1.0
         animated.autoreverses = true
         animated.repeatCount = Float.infinity
